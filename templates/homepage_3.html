@@ -55,7 +55,7 @@ https://templatemo.com/tm-568-digimedia
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="homepage_3.html" class="logo">
+            <a href="{% url 'index' %}" class="logo">
               <img src="{% static 'images/logo-v3.png' %}" alt="">
             </a>
             <!-- ***** Logo End ***** -->
@@ -64,7 +64,7 @@ https://templatemo.com/tm-568-digimedia
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#about">About</a></li>
               <div class="border-first-button scroll-to-section">
-                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
               </div>
             </ul>
             <a class='menu-trigger'>
@@ -177,11 +177,56 @@ https://templatemo.com/tm-568-digimedia
                 <div class="about-right-content">
                   <div class="section-heading">
                     <h6>About Us</h6>
-                    <h4>How To Navigate Our <em>Site</em></h4>
+                    <h4>Investing<em> 101</em></h4>
                     <div class="line-dec"></div>
                   </div>
                   <br>
-                  <span class="author"></span>All Information. Lorem Ipsum.</p>
+                  <span class="author"></span> <strong><u>
+                      <h4>Market Volatility</h4>
+                    </u></strong> <br>
+                  From our research, we concluded <em>three</em> main factors play into how volatile the housing market
+                  is at a given time: <br><br>
+
+                  The first factor being the <u>Consumer Price Index</u> (CPI) for housing in U.S. cities which measures
+                  for change in the prices that urban consumers pay for real estate. The CPI accounts and tracks
+                  inflation which helps investors rationalize their prices for purchasing a home and basing their rent
+                  price as a tenant.
+
+                  <br><br>Another factor that plays into market volatility is the <u>Housing Affordability Index</u>
+                  (HAI) which measures if a family making the median income can afford a median-priced home. For
+                  example, the HAI is over a 100 that indicates that a family has a surplus of income to purchase a
+                  median priced home. This metric helps dictate the demand of homeowners in the current market.
+
+                  <br><br>The last factor important for measuring volatility is the <u>Interest Rate</u> as lower
+                  interest rates allow home buyers to purchase homes with a lower mortgage. Allowing home buyers to
+                  purchase more expensive homes leads to a higher demand for real estate further making home prices go
+                  up.
+
+                  <br><br><strong><u>
+                      <h4>Investment Factors</h4>
+                    </u></strong>
+                  <br>One simple factor used to take into account when purchasing a new real estate investment is the
+                  <u>Gross Rent Multiplier</u> (GRM) which calculates the purchase price/ the total annual rent. A lower
+                  GRM
+                  reflects a healthier market.
+
+                  <br><br>Another basic factor is the <u>One Percent Rule</u> (OPR) which is the rule of thumb that the
+                  monthly gross rent should be more than or equal to 1% of the total purchase price. This can indicate
+                  how considerable a property's rental income may be.
+
+                  <br><br>A more accurate factor for investments is the <u>Cap Rate</u> which calculates the net
+                  operating income annually divided by the total purchase price. For our estimation we use a standard
+                  variation of the taxes and fees expected in the desired area.
+
+                  <br><br>Another important factor for purchasing a home is its <u>Net Income After Financing</u> (NIAF)
+                  which is the net operating costs annually minus the financing cost. This figure estimates how much
+                  money you directly put in the bank. For our estimation we use a standard variation of the taxes and
+                  fees expected in the desired area.
+
+                  <br><br>Finally, the factor <u>Cash on Cash Return</u> (COCR) calculates the NIAF divided by the
+                  down payment of the home. For our figures account 20% of the purchase price as the calculation of the
+                  down payment.
+                  </p>
                 </div>
               </div>
             </div>

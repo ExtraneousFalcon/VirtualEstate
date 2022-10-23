@@ -57,15 +57,15 @@ https://templatemo.com/tm-568-digimedia
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="homepage_3.html" class="logo">
+            <a href="{% url 'dashboard' %}" class="logo">
               <img src="{% static 'images/logo-v3.png' %}" alt="">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
 
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#about">About</a></li>
+              <li class="scroll-to-section"><a href="{% url 'index' %}" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="{% url 'index' %}">About</a></li>
               <li class="border-first-button scroll-to-section"><a href="{% url 'logout' %}">Logout</a></li>
             </ul>
 
@@ -89,8 +89,11 @@ https://templatemo.com/tm-568-digimedia
               <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Welcome Investor,</h2>
-                    <span class="author"></span>All Information. Lorem Ipsum.</p>
+                    <h2>Welcome {{name}},</h2>
+                    {% if message %}
+                    {{ message }}
+                    {% endif %}.
+                    <span class="author"></span>Please enter the address of a property for our analysis.</p>
 
                     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
@@ -121,9 +124,13 @@ https://templatemo.com/tm-568-digimedia
             <div class="col-lg-6">
               <div class="right-content wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s"></div>
               <div id="map">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91477111354!2d-74.11976337313078!3d40.697403441955714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1666463924040!5m2!1sen!2sus"
-                  width="100%" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                {% if not address %}
+                <iframe src="https://www.google.com/maps?q=New York City&z=15&output=embed" width="100%" height="350px"
+                  frameborder="0" style="border:0" allowfullscreen></iframe>
+                {% else %}
+                <iframe src="https://www.google.com/maps?q={{address}}&z=15&output=embed" width="100%" height="350px"
+                  frameborder="0" style="border:0" allowfullscreen></iframe>
+                {% endif %}
               </div>
               <!-- ***** Map and Information ***** -->
               <!-- 
@@ -163,7 +170,7 @@ https://templatemo.com/tm-568-digimedia
                       <div>
                         <div class="thumb">
                           <span class="icon"><img src="{% static 'images/service-icon-02.png' %}" alt=""></span>
-                          Market Volatility
+                          Volatility Indicators
                         </div>
                       </div>
                       <div>
@@ -183,7 +190,7 @@ https://templatemo.com/tm-568-digimedia
                             <div class="row">
                               <div class="col-lg-6 align-self-center">
                                 <div class="left-text">
-                                  <h4>SEO Analysis &amp; Daily Reports</h4>
+                                  <h4>Machine Learning Analysis</h4>
                                   <div class="row">
                                     <div class="col-lg-6 col-sm-4">
                                       <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s"
@@ -197,15 +204,15 @@ https://templatemo.com/tm-568-digimedia
                                           </span>
                                           <div class="progress-value">
                                             <div>
-                                              90%<br>
-                                              <span>Score</span>
+                                              $100<br>
+                                              <span>ML Value</span>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="col-lg-4 col-sm-4">
-                                      <div class="skill-item second-skill-item wow fadeIn" data-wow-duration="1s"
+                                      <div class="skill-item third-skill-item wow fadeIn" data-wow-duration="1s"
                                         data-wow-delay="0s">
                                         <div class="progress" data-percentage="80">
                                           <span class="progress-left">
@@ -216,8 +223,8 @@ https://templatemo.com/tm-568-digimedia
                                           </span>
                                           <div class="progress-value">
                                             <div>
-                                              80%<br>
-                                              <span>Buy</span>
+                                              $100<br>
+                                              <span>Market Value</span>
                                             </div>
                                           </div>
                                         </div>
@@ -225,15 +232,10 @@ https://templatemo.com/tm-568-digimedia
                                     </div>
                                   </div>
                                   <br>
-                                  <span class="author"></span>All Information. Lorem Ipsum. All Information. Lorem
-                                  Ipsum. All Information. Lorem Ipsum.All Information. Lorem Ipsum. All Information.
-                                  Lorem Ipsum. All Information. Lorem Ipsum. All Information. Lorem Ipsum.</p>
+                                  <span class="author"></span>Our cutting edge machine learning model predicts the value
+                                  of a property based on property factors and compares this value to the property's
+                                  current market price to find the perfect buy and sell investment opportunities!</p>
                                 </div>
-
-
-                                <!-- <button type="button">Buy or Sell!</button> -->
-
-
 
 
                               </div>
@@ -252,7 +254,7 @@ https://templatemo.com/tm-568-digimedia
                             <div class="row">
                               <div class="col-lg-6 align-self-center">
                                 <div class="left-text">
-                                  <h4>SEO Analysis &amp; Daily Reports</h4>
+                                  <h4>Machine Learning Analysis</h4>
                                   <div class="row">
                                     <div class="col-lg-6 col-sm-4">
                                       <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s"
@@ -266,15 +268,15 @@ https://templatemo.com/tm-568-digimedia
                                           </span>
                                           <div class="progress-value">
                                             <div>
-                                              90%<br>
-                                              <span>Score</span>
+                                              ${{y_pred}}<br>
+                                              <span>ML Value</span>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="col-lg-4 col-sm-4">
-                                      <div class="skill-item second-skill-item wow fadeIn" data-wow-duration="1s"
+                                      <div class="skill-item third-skill-item wow fadeIn" data-wow-duration="1s"
                                         data-wow-delay="0s">
                                         <div class="progress" data-percentage="80">
                                           <span class="progress-left">
@@ -285,8 +287,8 @@ https://templatemo.com/tm-568-digimedia
                                           </span>
                                           <div class="progress-value">
                                             <div>
-                                              80%<br>
-                                              <span>Buy</span>
+                                              ${{price}}<br>
+                                              <span>Market Value</span>
                                             </div>
                                           </div>
                                         </div>
@@ -294,14 +296,38 @@ https://templatemo.com/tm-568-digimedia
                                     </div>
                                   </div>
                                   <br>
-                                  <span class="author"></span>All Information. Lorem Ipsum. All Information. Lorem
-                                  Ipsum. All Information. Lorem Ipsum.All Information. Lorem Ipsum. All Information.
-                                  Lorem Ipsum. All Information. Lorem Ipsum. All Information. Lorem Ipsum.</p>
+                                  <span class="author"></span>Our cutting edge machine learning model predicts the value
+                                  of a property based on property factors and compares this value to the property's
+                                  current market price to find the perfect buy and sell investment opportunities!</p>
                                 </div>
 
 
                                 <!-- <button type="button">Buy or Sell!</button> -->
+                                <div class="sub-main1">
+                                  {% if ratio > 1.1 %}
+                                  <div class="main-button" disabled="true">
+                                    <a href="#">Buy</a>
+                                  </div>
+                                  {% else %}
+                                  <div class="main-button" disabled="true">
+                                    <a href="#">Sell</a>
+                                  </div>
+                                  {% endif %}
+                                </div>
 
+                                <!-- <div class="main-button">
+                                  <a href="">Buy/Sell</a>
+                                </div> -->
+
+
+
+                                <!-- <div class="main-button">
+                                  {% if ratio > 1.1 %}
+                                  <button class="main-button">Buy</button>
+                                  {% else %}
+                                  <button class="main-button">Sell</button>
+                                  {% endif %}
+                                </div> -->
 
 
                               </div>
@@ -359,22 +385,20 @@ https://templatemo.com/tm-568-digimedia
                             <div class="row">
                               <div class="col-lg-6 align-self-center">
                                 <div class="left-text">
-                                  <h4>Healthy Food &amp; Life</h4>
-                                  <span class="author"></span>All Information. Lorem Ipsum.</p>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedr do eiusmod deis
-                                    tempor incididunt ut labore et dolore kengan darwin doerski token.
-                                    dover lipsum lorem and the others.</p>
-                                  <div class="ticks-list"><span><i class="fa fa-check"></i> Optimized Template</span>
-                                    <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i>
-                                      SEO Analysis</span>
-                                    <span><i class="fa fa-check"></i> Data Info</span> <span><i class="fa fa-check"></i>
-                                      SEO Analysis</span> <span><i class="fa fa-check"></i> Optimized Template</span>
-                                  </div>
+                                  <h4>Market Volatility</h4>
+                                  <span class="author"></span>The Consumer Price Index had an average change of 1.13%
+                                  per quarter over the last 10 yearly quarters</p>
+                                  <span class="author"></span>The Housing Affordability Index had an average change of
+                                  3.69%
+                                  each month over the last 12 months</p>
+                                  <span class="author"></span>The interest rate had an average change of .85%
+                                  per quarter over the last 10 yearly quarters</p>
+                                  <span class="author"></span>For more information on these volatility factors please
+                                  visit our about page!</p>
                                 </div>
-
                                 <div class="row">
                                   <div class="col-lg-4 col-sm-4">
-                                    <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s"
+                                    <div class="skill-item second-skill-item wow fadeIn" data-wow-duration="1s"
                                       data-wow-delay="0s">
                                       <div class="progress" data-percentage="90">
                                         <span class="progress-left">
@@ -385,8 +409,8 @@ https://templatemo.com/tm-568-digimedia
                                         </span>
                                         <div class="progress-value">
                                           <div>
-                                            90%<br>
-                                            <span>Score</span>
+                                            1.55%<br>
+                                            <span>Last Quarter's ΔCPI</span>
                                           </div>
                                         </div>
                                       </div>
@@ -404,15 +428,15 @@ https://templatemo.com/tm-568-digimedia
                                         </span>
                                         <div class="progress-value">
                                           <div>
-                                            80%<br>
-                                            <span>Buy</span>
+                                            4.82%<br>
+                                            <span>Last Quarter's ΔHAI</span>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
                                   <div class="col-lg-4 col-sm-4">
-                                    <div class="skill-item third-skill-item wow fadeIn" data-wow-duration="1s"
+                                    <div class="skill-item second-skill-item wow fadeIn" data-wow-duration="1s"
                                       data-wow-delay="0s">
                                       <div class="progress" data-percentage="80">
                                         <span class="progress-left">
@@ -423,8 +447,8 @@ https://templatemo.com/tm-568-digimedia
                                         </span>
                                         <div class="progress-value">
                                           <div>
-                                            80%<br>
-                                            <span>Sell</span>
+                                            37%<br>
+                                            <span>Last Quarter's ΔIR</span>
                                           </div>
                                         </div>
                                       </div>
@@ -442,16 +466,24 @@ https://templatemo.com/tm-568-digimedia
                         </div>
                       </li>
                       <li>
+
+
+                        {% if price %}
+
+
+
+
                         <div>
                           <div class="thumb">
                             <div class="row">
                               <div class="col-lg-6 align-self-center">
                                 <div class="left-text">
-                                  <h4>Investment Factors</h4>
-                                  <span class="author"></span>All Information. Lorem Ipsum. All Information. Lorem
-                                  Ipsum. All Information. Lorem Ipsum. All Information. Lorem Ipsum. All Information.
-                                  Lorem Ipsum. All Information. Lorem Ipsum. All Information. Lorem Ipsum. All
-                                  Information. Lorem Ipsum. All Information. Lorem Ipsum.</p>
+                                  <h4>Investment Snapshot</h4>
+                                  <span class="author"></span>GRM refers to the Gross Rent Multiplier. OPR refers to the
+                                  One Percent Rule. NIAF refers to the Net Income After Financing. COCR refers to the
+                                  Cash On Cash Return.</p>
+                                  <span class="author"></span>For more information on these investment factors please
+                                  visit our about page!</p>
                                 </div>
                                 <div class="row">
                                   <div class="col-lg-4 col-sm-4">
@@ -466,27 +498,8 @@ https://templatemo.com/tm-568-digimedia
                                         </span>
                                         <div class="progress-value">
                                           <div>
-                                            90%<br>
-                                            <span>Score</span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="col-lg-4 col-sm-4">
-                                    <div class="skill-item second-skill-item wow fadeIn" data-wow-duration="1s"
-                                      data-wow-delay="0s">
-                                      <div class="progress" data-percentage="80">
-                                        <span class="progress-left">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <span class="progress-right">
-                                          <span class="progress-bar"></span>
-                                        </span>
-                                        <div class="progress-value">
-                                          <div>
-                                            80%<br>
-                                            <span>Buy</span>
+                                            {{grm}}%<br>
+                                            <span>GRM</span>
                                           </div>
                                         </div>
                                       </div>
@@ -504,8 +517,27 @@ https://templatemo.com/tm-568-digimedia
                                         </span>
                                         <div class="progress-value">
                                           <div>
-                                            80%<br>
-                                            <span>Sell</span>
+                                            {{opr}}%<br>
+                                            <span>OPR</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4 col-sm-4">
+                                    <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s"
+                                      data-wow-delay="0s">
+                                      <div class="progress" data-percentage="80">
+                                        <span class="progress-left">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                          <div>
+                                            {{capRate}}%<br>
+                                            <span>Cap Rate</span>
                                           </div>
                                         </div>
                                       </div>
@@ -525,15 +557,15 @@ https://templatemo.com/tm-568-digimedia
                                         </span>
                                         <div class="progress-value">
                                           <div>
-                                            80%<br>
-                                            <span>Buy</span>
+                                            ${{niaf}}<br>
+                                            <span>NIAF</span>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                   </div>
                                   <div class="col-lg-2 col-sm-2">
-                                    <div class="skill-item second-skill-item wow fadeIn" data-wow-duration="1s"
+                                    <div class="skill-item third-skill-item wow fadeIn" data-wow-duration="1s"
                                       data-wow-delay="0s">
                                       <div class="progress" data-percentage="80">
                                         <span class="progress-left">
@@ -544,8 +576,8 @@ https://templatemo.com/tm-568-digimedia
                                         </span>
                                         <div class="progress-value">
                                           <div>
-                                            80%<br>
-                                            <span>Sell</span>
+                                            {{cocr}}%<br>
+                                            <span>COCR</span>
                                           </div>
                                         </div>
                                       </div>
@@ -561,6 +593,134 @@ https://templatemo.com/tm-568-digimedia
                             </div>
                           </div>
                         </div>
+                        {% else %}
+
+                        <div>
+                          <div class="thumb">
+                            <div class="row">
+                              <div class="col-lg-6 align-self-center">
+                                <div class="left-text">
+                                  <h4>Investment Factors</h4>
+                                  <span class="author"></span>GRM refers to the Gross Rent Multiplier. OPR refers to the
+                                  One Percent Rule. NIAF refers to the Net Income After Financing. COCR refers to the
+                                  Cash On Cash Return.</p>
+                                  <span class="author"></span>For more information on these investment factors please
+                                  visit our about page!</p>
+                                </div>
+                                <div class="row">
+                                  <div class="col-lg-4 col-sm-4">
+                                    <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s"
+                                      data-wow-delay="0s">
+                                      <div class="progress" data-percentage="90">
+                                        <span class="progress-left">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                          <div>
+                                            100%<br>
+                                            <span>GRM</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4 col-sm-4">
+                                    <div class="skill-item third-skill-item wow fadeIn" data-wow-duration="1s"
+                                      data-wow-delay="0s">
+                                      <div class="progress" data-percentage="80">
+                                        <span class="progress-left">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                          <div>
+                                            100%<br>
+                                            <span>OPR</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-4 col-sm-4">
+                                    <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s"
+                                      data-wow-delay="0s">
+                                      <div class="progress" data-percentage="80">
+                                        <span class="progress-left">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                          <div>
+                                            100%<br>
+                                            <span>Cap Rate</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-lg-6 col-sm-6">
+                                    <div class="skill-item third-skill-item wow fadeIn" data-wow-duration="1s"
+                                      data-wow-delay="0s">
+                                      <div class="progress" data-percentage="80">
+                                        <span class="progress-left">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                          <div>
+                                            $100<br>
+                                            <span>NIAF</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2 col-sm-2">
+                                    <div class="skill-item first-skill-item wow fadeIn" data-wow-duration="1s"
+                                      data-wow-delay="0s">
+                                      <div class="progress" data-percentage="80">
+                                        <span class="progress-left">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <span class="progress-right">
+                                          <span class="progress-bar"></span>
+                                        </span>
+                                        <div class="progress-value">
+                                          <div>
+                                            100%<br>
+                                            <span>COCR</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-6 align-self-center">
+                                <div class="right-image">
+                                  <img src="{% static 'images/services-image-03.jpg' %}" alt="">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+
+
+                        {% endif %}
+
                       </li>
                       <li>
                       </li>

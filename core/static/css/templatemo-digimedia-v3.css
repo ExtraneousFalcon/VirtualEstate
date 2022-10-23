@@ -1128,11 +1128,11 @@ About Style
 }
 
 .first-skill-item .progress .progress-bar {
-  border-color: #5A4AE3;
+  border-color: #2f80c3;
 }
 
 .second-skill-item .progress .progress-bar {
-  border-color: #2f80c3;
+  border-color: #ee3636;
 }
 
 .third-skill-item .progress .progress-bar {
@@ -1167,7 +1167,7 @@ About Style
   display: flex;
   width: 100%;
   border-radius: 50%;
-  font-size: 35px;
+  font-size: 30px;
   text-align: center;
   line-height: 25px;
   align-items: center;
@@ -2315,4 +2315,37 @@ responsive
 
 #searchQuerySubmit:hover {
   cursor: pointer;
+}
+
+.main-button a {
+  font-size: 20px;
+  color: #fff;
+  background-color: #5A4AE3;
+  border: 1px solid #5A4AE3;
+  padding: 15px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-button a:after {
+  width: 78%;
+  height: 2px;
+  background-color: #fff;
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.main-button a:hover {
+  background-color: #fff;
+  color: #5A4AE3;
+  border: 1px solid #fff;
 }

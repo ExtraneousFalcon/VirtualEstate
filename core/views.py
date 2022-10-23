@@ -102,6 +102,8 @@ prices = []
 
 @login_required(login_url='signin')
 def getlatlong(request):
+    if request.method == 'GET':
+        return redirect('dashboard')
     if request.method == 'POST':
         address = request.POST['address']
 
@@ -126,7 +128,7 @@ def getlatlong(request):
         if response.get('error'):
             print('bruh')
             messages.info(request, 'Location Not Found. Please re-enter')
-            return redirect('index')
+            return render(request, 'dashboard.html', {'name': request.user.username, 'message': 'Property Data Not Available'})
 
         try:
             school_rating = int(response['schools'][-1]['rating'])
@@ -141,7 +143,7 @@ def getlatlong(request):
             if zipcode not in zip_code_keep:
                 print('exit')
                 messages.info(request, 'Location Unavailable. Please re-enter')
-                return redirect('index')
+                return render(request, 'dashboard.html', {'name': request.user.username, 'message': 'Property Data Not Available'})
 
             l = [num_bathrooms, num_bedrooms,
                  livingArea, school_rating, yearBuilt]
@@ -160,13 +162,13 @@ def getlatlong(request):
             opr = rentZestimate/price
 
             # Cap Rate
-            capRate = ((rentZestimate*12) - (200))/(price)
+            capRate = (((rentZestimate*12) * .6))/(price)
 
             # NIAF - Net Income After Financing
-            niaf = (rentZestimate*12) - (200)
+            niaf = (rentZestimate*12) * (.4)
 
             # COCR - Cash on Cash Return
-            cocr = niaf/(.2*price)
+            cocr = niaf / (.2 * price)
 
             # temp = price history array
 
@@ -183,9 +185,9 @@ def getlatlong(request):
         except:
             messages.info(request, 'Data Unavailable. Please re-enter')
 
-            return redirect('index')
+            return render(request, 'dashboard.html', {'name': request.user.username, 'message': 'Property Data Not Available'})
 
-    return render(request, 'dashboard.html', {'grm': grm, 'opr': opr, 'capRate': capRate, 'niaf': niaf, 'cocr': cocr, 'prices': temp, 'name': request.user.username})
+    return render(request, 'dashboard.html', {'grm': round(grm, 2), 'opr': round(opr, 2), 'capRate': round(capRate, 2), 'niaf': round(niaf, 2), 'cocr': round(cocr, 2), 'prices': temp, 'name': request.user.username, 'address': address, 'y_pred': int(y_pred), 'price': price, 'ratio': y_pred/price})
 
 
 @login_required(login_url='signin')
