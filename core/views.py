@@ -10,7 +10,6 @@ import numpy as np
 # from .apps import ohe, zip_code_keep, mlpc, sc
 from django.apps import AppConfig
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPRegressor
 from sklearn.metrics import confusion_matrix, classification_report, r2_score
