@@ -1,0 +1,15 @@
+{% load static %}
+<h1>Hi</h1>
+
+<form action="getlatlong" method="POST">
+    {% csrf_token %}
+    <input type="text" placeholder="Address" name="address">
+    <button type="submit">Find Lat and Long</button>
+</form>
+<form action="logout" method="POST">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+
+
+<link rel="stylesheet" href="{% static 'css/basic.css' %}">

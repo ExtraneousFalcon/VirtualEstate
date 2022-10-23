@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Virtual Estate</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'css/templatemo-digimedia-v3.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animated.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owl.css' %}">
+  <!--
+
+TemplateMo 568 DigiMedia
+
+https://templatemo.com/tm-568-digimedia
+
+-->
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="homepage_3.html" class="logo">
+              <img src="{% static 'images/logo-v3.png' %}" alt="">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#about">About</a></li>
+              <div class="border-first-button scroll-to-section">
+                <li><a href="dashboard.html">Dashboard</a></li>
+              </div>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h6>Virtual Estate</h6>
+
+                    <head>
+                      <title>Title of the document</title>
+                      <style>
+                        .typewriter h2 {
+                          font-family: Poppins;
+                          /* Web-safe typewriter-like font */
+                          overflow: hidden;
+                          /* Ensures the content is not revealed until the animation */
+                          border-right: .2em solid rgb(0, 0, 0);
+                          /* The typewriter cursor */
+                          white-space: nowrap;
+                          /* Keeps the content on a single line */
+                          margin: 0 auto;
+                          /* Gives that scrolling effect as the typing happens */
+                          letter-spacing: .05em;
+                          /* Adjust as needed */
+                          animation: typing 3.5s steps(30, end), blinking-cursor .5s step-end infinite;
+                        }
+
+                        /* The typing effect */
+                        @keyframes typing {
+                          from {
+                            width: 0
+                          }
+
+                          to {
+                            width: 100%
+                          }
+                        }
+
+                        /* The typewriter cursor effect */
+                        @keyframes blinking-cursor {
+
+                          from,
+                          to {
+                            border-color: transparent
+                          }
+
+                          50% {
+                            border-color: #6082B6;
+                          }
+                        }
+                      </style>
+                    </head>
+
+                    <body>
+                      <div class="typewriter">
+                        <h2>A Tool For Investing...</h2>
+                      </div>
+                    </body>
+
+                    <!-- <h2>A Tool For Investing</h2> -->
+                    <span class="author"></span>All Information. Lorem Ipsum.</p>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="border-first-button scroll-to-section">
+                      <li><a href="{% url 'signin' %}">Sign In</a></li>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div id="map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.91477111354!2d-74.11976337313078!3d40.697403441955714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1666463924040!5m2!1sen!2sus"
+                  width="100%" height="600px" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="about" class="about section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="about-left-image  wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <img src="{% static 'images/about-dec-v3.png' %}" alt="">
+                </div>
+              </div>
+              <div class="col-lg-6 align-self-center  wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                <div class="about-right-content">
+                  <div class="section-heading">
+                    <h6>About Us</h6>
+                    <h4>How To Navigate Our <em>Site</em></h4>
+                    <div class="line-dec"></div>
+                  </div>
+                  <br>
+                  <span class="author"></span>All Information. Lorem Ipsum.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/owl-carousel.js' %}"></script>
+    <script src="{% static 'js/animation.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>
