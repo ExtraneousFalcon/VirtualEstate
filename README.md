@@ -29,4 +29,5 @@ We hope to expand the modularity of virtual real-estate from examining individua
 ![buySellDashboard](https://user-images.githubusercontent.com/91358365/197379594-2d3f1bb0-7a65-45f1-9dd0-660dccc10348.png)
 ![volatilityDashboard](https://user-images.githubusercontent.com/91358365/197379598-88715a19-3cce-4567-bc72-b50034e43006.png)
 ![investmentFactorsDashboard](https://user-images.githubusercontent.com/91358365/197379597-41c5f9cc-09be-484c-974f-a4737d317918.png)
+![about](https://user-images.githubusercontent.com/91358365/197379724-c9f15a2d-27d9-4eaf-ac47-7f0c4a5d34bc.png)
 
